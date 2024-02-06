@@ -13,19 +13,41 @@ module.exports = class extends Generator {
 
   writing() {
     // Scaffolding Next.js project
-    this.spawnCommandSync('npx', ['create-next-app@latest', this.options.name || 'nextjs-project']);
+    const repoName = this.options.name || 'nextjs-project';
+    this.spawnCommandSync('npx', [
+      'create-next-app@latest',
+      repoName,
+      '--eslint',
+      '--tailwind',
+      '--ts',
+      '--src-dir',
+      '--no-import-alias',
+      '--no-app',
+    ]);
 
-    // Navigate into the project directory
-    const projectDir = `${process.cwd()}/${this.options.name || 'nextjs-project'}`;
-    process.chdir(projectDir);
+    // // Navigate into the project directory
+    // const projectDir = `${process.cwd()}/${repoName}`;
+    // process.chdir(projectDir);
 
-    // Set up TypeScript
-    this.spawnCommandSync('npm', ['install', '--save-dev', 'typescript', '@types/react', '@types/node']);
-    this.spawnCommandSync('touch', ['tsconfig.json']);
+    // // Set up TypeScript
+    // this.spawnCommandSync('npm', [
+    //   'install',
+    //   '--save-dev',
+    //   'typescript',
+    //   '@types/react',
+    //   '@types/node',
+    // ]);
+    // this.spawnCommandSync('touch', ['tsconfig.json']);
 
-    // Set up Tailwind CSS
-    this.spawnCommandSync('npm', ['install', '-D', 'tailwindcss', 'postcss', 'autoprefixer']);
-    this.spawnCommandSync('npx', ['tailwindcss', 'init', '-p']);
+    // // Set up Tailwind CSS
+    // this.spawnCommandSync('npm', [
+    //   'install',
+    //   '-D',
+    //   'tailwindcss',
+    //   'postcss',
+    //   'autoprefixer',
+    // ]);
+    // this.spawnCommandSync('npx', ['tailwindcss', 'init', '-p']);
 
     // Add custom homepage and global.css
     // this.fs.copyTpl(
