@@ -1,0 +1,27 @@
+{
+  "name": "generator-boilerplate-scripts",
+  "version": "0.0.1",
+  "description": "Bitloops Boilerplate Script for Yeoman",
+  "main": "index.js",
+  "repository": "https://github.com/bitloops/boilerplate-scripts.git",
+  "author": "Bitloops S.A.",
+  "keywords": ["yeoman-generator"],
+  "files": [
+    "generators"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^7.1.1"
+  },
+  "scripts": {
+    "compile": "npx tsc",
+    "start": "npx ts-node src/index.ts",
+    "build": "tsc",
+    "prepublishOnly": "yarn build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.16",
+    "@types/yeoman-generator": "^5.2.14",
+    "typescript": "^5.3.3"
+  }
+}
