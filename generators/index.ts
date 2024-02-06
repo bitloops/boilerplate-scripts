@@ -28,24 +28,24 @@ module.exports = class extends Generator {
     this.spawnCommandSync('npx', ['tailwindcss', 'init', '-p']);
 
     // Add custom homepage and global.css
-    this.fs.copyTpl(
-      this.templatePath('custom-homepage.tsx'),
-      this.destinationPath('pages/index.tsx'),
-      {} // Context for templating
-    );
-    this.fs.copyTpl(
-      this.templatePath('global.css'),
-      this.destinationPath('styles/global.css'),
-      {} // Context for templating
-    );
+    // this.fs.copyTpl(
+    //   this.templatePath('custom-homepage.tsx'),
+    //   this.destinationPath('pages/index.tsx'),
+    //   {} // Context for templating
+    // );
+    // this.fs.copyTpl(
+    //   this.templatePath('global.css'),
+    //   this.destinationPath('styles/global.css'),
+    //   {} // Context for templating
+    // );
   }
 
   install() {
     // Install dependencies
     this.installDependencies({
-      npm: true,
+      npm: false,
       bower: false,
-      yarn: false,
+      yarn: true,
     });
   }
 
